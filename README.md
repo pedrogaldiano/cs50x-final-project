@@ -6,9 +6,9 @@
 Workout  an application capable of Generate a workout program by  
 choosing "randomly" the exercises for each muscle group defined by some filters.
 
-![image1](/"print-home.png")
-![image2](/"print-workout-predefined.png")
-![image3](/"print-workout-personalized.png")
+![home](print-home.png)
+![predefined](print-workout-predefined.png)
+![personalized](print-workout-personalized.png)
 
 ------------------------
 ### IMPORTANT:
