@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block section %}
+<article>
+    <form action="/" method="POST">
+        
+        <h3>Select a Predefined Routine<br/>
+            <small>You can select one or more</small>
+        </h3>
+
+        {% for routine in predef_routines %}
+        <input class="predef" type="checkbox" name="{{ routine }}">
+        <label for="{{ routine }}">{{ routine }}</label>
+        {% endfor %}
+        <br/>
+
+        <select class="input_option" name="sets">
+            <option disabled selected value="">Sets</option>
+            {% for number in range(1,11) %}
+            <option value="{{ number }}">{{ number }}</option>
+            {% endfor %}
+        </select>
+
+        <select class="input_option" name="reps">
+            <option disabled selected value="">Reps</option>
+            {% for number in range(1,31) %}
+            <option value="{{ number }}">{{ number }}</option>
+            {% endfor %}
+        </select>
+        <br/>
+
+        <input class="submit" type="submit" name="action"
+                value="Generate Predefined Workout">
+    </form>
+</article>
+
+<br/>
+
+<article>
+    <form action="/" method="POST">
+        <h3>Create a Personalized Routine<br/>
+            <small>Select one or more muscles and the quantity
+                of exercises per muscle</small>
+        </h3>
+
+        <label for="routine_name">Routine Name: </label>
+        <input type="text" autocomplete="off" name="routine_name">
+        <br/>
+
+        <table class="select_muscles_table">
+            {% for i in range(0,17,2) %}
+
+            <div class="row">
+                <tr>
+                <div class="column">
+                    <td>
+                        <input class="select_muscle" type="checkbox" name="{{ muscles_list[i] }}">
+                        <label for="{{ muscles_list[i] }}">{{muscles_list[i] }}</label>
+                    </td>
+
+                    <td>
+                        <select name="{{ number_ex_list[i] }}">
+                            <option disabled selected value="">Quantity</option>
+                            {% for number in range(1,9) %}
+                            <option value="{{ number }}">{{ number }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+                    
+                <div class="column">
+                    <td>
+                        <input type="checkbox" name="{{ muscles_list[i+1] }}">
+                        <label for="{{ muscles_list[i+1] }}">{{ muscles_list[i+1] }}</label>
+                    </td>
+
+                    <td>
+                        <select name="{{ number_ex_list[i+1] }}">
+                            <option disabled selected value="">Quantity</option>
+                            {% for number in range(1,9) %}
+                            <option value="{{ number }}">{{ number }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+        <br/>
+
+        <select class="input_option" name="sets">
+            <option disabled selected value="">Sets</option>
+            {% for number in range(1,11) %}
+            <option value="{{ number }}">{{ number }}</option>
+            {% endfor %}
+        </select>
+
+        <select class="input_option" name="reps">
+            <option disabled selected value="">Reps</option>
+            {% for number in range(1,31) %}
+            <option value="{{ number }}">{{ number }}</option>
+            {% endfor %}
+        </select>
+        <br/>
+
+        <input class="submit" type="submit" name="action"
+                value="Generate Personalized Workout">
+    </form>
+</article>
+
+{% endblock %}

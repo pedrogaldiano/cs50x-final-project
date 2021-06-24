@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block section %}
+
+{% for routine_selected, user_routine in routine %}
+<table class="workout">
+
+    <h2>{{ routine_selected }}</h2>
+    <tr>
+        <td>Target Muscle</td>
+        <td>Exercise Name</td>
+        <td>Sets x Reps</td>
+    </tr>
+
+    {% for exercises in user_routine %}
+    <tr>
+
+        <td>{{ exercises[1] }}</td>
+        <td><a href="https://www.youtube.com/results?search_query={{ exercises[0] }}"
+                target="_blank"
+                rel="noopener noreferrer">{{ exercises[0] }}</a></td>
+
+        {% if exercises[1] != "Aerobic" %}
+        <td>{{ sets }} x {{ reps }}</td>
+        {% endif %}
+        
+    </tr>
+    {% endfor %}
+
+</table>
+{% endfor %}
+
+{% endblock %}

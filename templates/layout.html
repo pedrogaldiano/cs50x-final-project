@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport"
+        content="initial-scale=0.6, maximum-scale=1, width=device-width">
+    <link rel="icon" href="data:,">
+    <link href="../static/styles.css" rel="stylesheet">
+    <title>Workout Generator</title>
+</head>
+
+<body>
+    <header>
+        <a href="../">
+            <h1>Workout Generator<br/>
+            <small>We select the exercises for you!</small>
+            </h1>
+        </a>
+    </header>
+
+    <section>
+        {% block section %}
+        {% endblock %}
+    </section>
+
+    <footer>
+        <p>DISCLAIMER: We just suggest some exercises. 
+            Follow at your own risk.</p>
+    </footer>
+</body>
+
+</html>
